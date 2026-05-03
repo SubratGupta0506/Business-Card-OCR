@@ -1,0 +1,24 @@
+📦 Standard Python Libraries
+Library	Purpose
+re	Regular expressions for text parsing and cleaning
+json	Handling JSON data (conversion, parsing)
+pickle	Serializing and saving data (e.g., training/testing splits)
+random	Shuffling data (for splitting into training/testing sets)
+os (optional)	File path handling (if used)
+
+🧮 Data Handling & Processing
+Library	Purpose
+pandas	DataFrames for structured data (tokens, labels, etc.)
+numpy (optional)	Numerical operations, often used with OpenCV and pandas (though not shown directly)
+
+🧹 Text Preprocessing / NLP
+Library	Purpose
+spacy	NLP processing (tokenization, entity extraction, .to_json() on Doc object)
+
+🖼️ Image Processing & Display
+Library	Purpose
+cv2 (OpenCV)	Reading, displaying, and annotating images
+
+🧠 Custom / Project Modules
+Module	Purpose
+predictions	Custom model for inference (getPredictions) — returns image with predicted entities

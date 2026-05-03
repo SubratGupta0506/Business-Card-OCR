@@ -1,0 +1,95 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<br>
+
+<h3>About This Project</h3>
+
+<p>
+    This project — <strong>"Intelligently Extract Text & Data from Documents using OCR & NER"</strong> — was developed by <strong>Subrat Gupta</strong> as a practical implementation of modern Computer Vision and NLP techniques. 
+    The goal is to accurately extract key entities such as names, phone numbers, emails, and organizations from scanned documents, with a special focus on business cards. 
+    While this demonstration uses business cards for data privacy reasons, the framework is easily adaptable to documents like invoices, shipping bills, or other financial records.
+</p>
+
+<p>
+    To build this project, I integrated two core technologies in Data Science:
+</p>
+<ol>
+    <li><strong>Computer Vision</strong></li>
+    <li><strong>Natural Language Processing (NLP)</strong></li>
+</ol>
+
+<p>
+    In the Computer Vision module, the system scans the uploaded document, enhances its quality, and detects the position of textual elements. 
+    Then, using NLP techniques, it processes the extracted text, cleans it, and uses a custom-trained NER model to identify structured data.
+</p>
+
+<p><strong>Python Libraries used in Computer Vision Module:</strong></p> 
+<ul>
+    <li>OpenCV – for image preprocessing and contour detection</li>
+    <li>NumPy – for numerical operations</li>
+    <li>Pytesseract – for Optical Character Recognition (OCR)</li>
+</ul>
+
+<p><strong>Python Libraries used in Natural Language Processing:</strong></p>
+<ul>
+    <li>SpaCy – for training and using the custom NER model</li>
+    <li>Pandas – for data manipulation and structuring</li>
+    <li>Regular Expressions – for pattern-based text cleaning</li>
+    <li>String – for handling character-level processing</li>
+</ul>
+
+<p>
+    The entire project is divided into multiple development stages for better understanding and modular implementation:
+</p>
+
+<p><strong>Stage 1: Project Setup</strong></p>
+<ul>
+    <li>Install Python and necessary libraries</li>
+    <li>Organize the file structure</li>
+</ul>
+
+<p><strong>Stage 2: Data Preparation</strong></p>
+<ul>
+    <li>Collect document images (e.g., business cards)</li>
+    <li>Extract raw text using Pytesseract</li>
+    <li>Clean and prepare text for annotation</li>
+</ul>
+
+<p><strong>Stage 3: Manual Data Labeling (BIO Tagging)</strong></p>
+<ul>
+    <li>Label entities using the BIO format:
+        <ul>
+            <li>B – Beginning of an entity</li>
+            <li>I – Inside of an entity</li>
+            <li>O – Outside or not part of any entity</li>
+        </ul>
+    </li>
+</ul>
+
+<p><strong>Stage 4: Data Preprocessing</strong></p>
+<ul>
+    <li>Convert the labeled text into SpaCy-compatible training format</li>
+    <li>Split data into training and testing sets</li>
+</ul>
+
+<p><strong>Stage 5: Model Training</strong></p>
+<ul>
+    <li>Configure and train the custom NER model using SpaCy</li>
+    <li>Validate model accuracy on test samples</li>
+</ul>
+
+<p><strong>Stage 6: Deployment and Prediction</strong></p>
+<ul>
+    <li>Load and serve the trained model using Flask</li>
+    <li>Render results with Displacy visualization</li>
+    <li>Draw bounding boxes around predicted entities</li>
+    <li>Build a complete document scanner web app</li>
+</ul>
+
+<h4>All of these stages come together in a fully functional web application built using Flask, where users can upload document images and get real-time predictions through the browser interface.</h4>
+
+<p><strong>Developed By:</strong> Subrat Gupta <br>
+B.Tech CSE, GITAM University</p>
+
+{% endblock %}

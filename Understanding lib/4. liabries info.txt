@@ -1,0 +1,121 @@
+Here’s the categorized summary for your 4th notebook (named based on the context as something like 04_NER_Prediction.ipynb):
+
+✅ NumPy (numpy)
+Function / Usage	Description
+import numpy as np	Imported but not used in the code provided.
+
+✅ Pandas (pandas)
+Function / Usage	Description
+pd.DataFrame(...)	Converts OCR data (tesseract output) to a structured format.
+df.dropna(inplace=True)	Removes rows with missing values.
+df['text'].apply(...)	Applies custom text cleaning function.
+df.query('text != ""')	Filters out empty text entries.
+
+✅ OpenCV (cv2)
+Function / Usage	Description
+cv2.imread('./data/6.jpg')	Loads the image for OCR processing.
+
+✅ PyTesseract (pytesseract)
+Function / Usage	Description
+pytesseract.image_to_data(image)	Performs OCR and returns detailed data (with position info).
+
+✅ spaCy (spacy)
+Function / Usage	Description
+spacy.load('./output/model-best/')	Loads the custom NER model for inference.
+model_ner(content)	Applies the NER model on the cleaned text.
+
+✅ Python Built-ins & Utilities
+Function / Usage	Description
+cleanText(txt)	Custom function to clean whitespace and punctuation.
+string.whitespace, string.punctuation	Used in the cleaning function.
+re	Imported but not used in current code.
+
+✅ Visualization (spaCy's displacy)
+Function / Usage	Description
+displacy.serve(doc, style='ent')	Serves an HTML visualization of NER entities.
+displacy.render(doc, style='ent')	Renders the NER result inline.
+
+✅ Warnings
+Function / Usage	Description
+warnings.filterwarnings('ignore')	Suppresses warnings for clean output.
+
+❌ Not Used
+Library	Comment
+numpy	Imported but not used.
+re	Imported but not used.
+
+Let me know when you're ready for the 5th batch, or if you'd like a combined summary of all batches so far.
+
+
+
+Here’s the categorized summary for the fourth notebook (Part 2) in the same format as requested:
+
+✅ NumPy (numpy)
+Function / Usage	Description
+import numpy as np	Imported but not directly used in this section.
+
+✅ Pandas (pandas)
+Function / Usage	Description
+pd.DataFrame(...)	Creates DataFrames from token and entity JSON data.
+datafram_tokens.fillna('O')	Fills missing entity labels with 'O'.
+df_clean['end'] = ...	Computes end positions for each cleaned text segment.
+df_clean['start'] = ...	Computes start positions for each text using its length.
+pd.merge(...)	Merges token and label information with OCR text data.
+datafram_tokens.head(10)	Displays first 10 rows of token DataFrame.
+dataframe_info.tail(10)	Displays last 10 rows of final merged DataFrame.
+
+✅ spaCy (spacy)
+Function / Usage	Description
+doc.to_json()	Converts the Doc object into JSON for token-level info.
+docjson['text']	Extracts raw text from JSON.
+docjson['tokens']	Extracts token spans (start/end indices).
+docjson['ents']	Extracts named entity spans (start positions + labels).
+
+✅ Python Built-ins
+Function / Usage	Description
+lambda x: doc_text[x[0]:x[1]]	Extracts tokens from text using start/end offsets.
+apply(..., axis=1)	Applies function row-wise in pandas.
+
+Let me know when you're ready to continue to the next part of notebook 4!
+
+
+Here is the continuation of Notebook 4 (Part 3) categorized in the same format:
+
+✅ Pandas (pandas)
+Function / Usage	Description
+dataframe_info.groupby('label')	Groups OCR+NER results by the predicted entity label.
+['text'].apply(list)	Collects grouped text values into lists.
+reset_index()	Converts grouped object back into a flat DataFrame.
+explode('text')	Expands lists of text values into separate rows.
+to_csv('extract.csv')	Saves the final NER-annotated text results into a CSV file.
+print(df_csv.head(10))	Displays first 10 rows of saved CSV data.
+
+
+Here’s the categorized summary of Part 4 (final section) just like before:
+
+✅ cv2 (OpenCV)
+Function / Usage	Description
+cv2.rectangle(img, (x,y), (x+w,y+h), color, thickness)	Draws bounding boxes around detected entities.
+cv2.putText(img, label, (x,y), font, font_scale, color, thickness)	Writes the predicted label on the image.
+cv2.imshow() / cv2.waitKey(0) / cv2.destroyAllWindows()	Displays the image with NER results and waits for key press.
+
+✅ Pandas & Numpy
+Function / Usage	Description
+query("label != 'O'")	Filters out tokens without entity labels (i.e., non-entities).
+apply(lambda x: x[2:])	Trims entity label prefixes (e.g., removing "B-" or "I-").
+astype(int)	Ensures bounding box coordinates are integers.
+groupby('group')	Groups entities spatially using a custom logic for bounding box grouping.
+agg({})	Aggregates per-group bounding box and text token information.
+
+✅ Custom Class: groupgen
+Class / Method	Purpose
+groupgen	Assigns a unique group ID to sequential tokens based on the label for grouping.
+getgroup(text)	Tracks and returns group ID if label text changes.
+
+✅ Final Output Visualization
+Stage	Description
+Bounding boxes	Drawn using min/max left, right, top, and bottom per group.
+Token merge	Tokens within the same group are concatenated for final label display.
+Display	Visual output showing grouped bounding boxes and associated labels on the image.
+
+Let me know when you're ready to continue with Notebook 5, or if you'd like a full summary of Part 4 in one go.

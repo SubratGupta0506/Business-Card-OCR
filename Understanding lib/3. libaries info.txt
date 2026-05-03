@@ -1,0 +1,29 @@
+✅ Libraries and Their Usage in 03_Data_Preprocessing.ipynb
+✅ String (string)
+Function / Usage	Description
+string.whitespace	Used to define all types of whitespace characters.
+string.punctuation	Used to define a set of punctuation marks for removal.
+str.maketrans('', '', chars)	Creates translation tables to remove unwanted characters.
+
+✅ Pandas (pandas)
+Function / Usage	Description
+pd.DataFrame(...)	Creates a DataFrame from the parsed raw data.
+df['text'].apply(...)	Applies the cleanText function to clean each row of text.
+df.groupby(by='id')	Groups rows based on card ID.
+group.get_group(card)	Extracts grouped data per card.
+
+✅ Random (random)
+Function / Usage	Description
+random.shuffle(allCardsData)	Randomly shuffles the prepared data for training/testing split.
+
+✅ Pickle (pickle)
+Function / Usage	Description
+pickle.dump(obj, file, mode='wb')	Serializes and saves Python objects (Train/Test data) to .pickle files.
+
+✅ Built-in Functions
+Function / Usage	Description
+open(path, mode='r')	Opens a text file for reading OCR data.
+map(lambda x: ..., iterable)	Splits each line of text into columns.
+len(text)	Measures the length of cleaned tokens for NER tagging.
+str.lower()	Converts text to lowercase.
+str.translate(...)	Removes whitespace and punctuation using translation tables.

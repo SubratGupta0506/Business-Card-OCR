@@ -1,0 +1,36 @@
+✅ NumPy (numpy)
+Function / Usage	Description
+import numpy as np	Imported but not used in the given code so far.
+
+✅ Pandas (pandas)
+Function / Usage	Description
+pd.DataFrame(...)	Used to create empty and filled DataFrames (allBusinessCard, df, businessCard).
+df.dropna(inplace=True)	Drops rows with missing values from the DataFrame.
+df['conf'].astype(int)	Converts confidence column to integer type.
+df.query('conf >= 30')	Filters rows where OCR confidence is 30 or more.
+pd.concat(...)	Concatenates multiple DataFrames.
+to_csv(...)	Saves the final DataFrame to a CSV file.
+
+✅ OpenCV (cv2)
+Function / Usage	Description
+cv2.imread(imgPath)	Reads image from path into OpenCV format.
+
+✅ pytesseract
+Function / Usage	Description
+pytesseract.image_to_data(image)	Extracts detailed OCR text and positional data from image.
+
+✅ os
+Function / Usage	Description
+os.path.split(imgPath)	Splits the image path into directory and filename.
+
+✅ glob
+Function / Usage	Description
+glob('./Selected/*.jpeg')	Finds all JPEG files in the ./Selected/ folder.
+
+✅ tqdm
+Function / Usage	Description
+tqdm(imgPaths, desc='BusinessCard')	Displays a progress bar for processing image list.
+
+✅ warnings
+Function / Usage	Description
+warnings.filterwarnings('ignore')	Suppresses warning messages during execution.
