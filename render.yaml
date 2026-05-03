@@ -2,8 +2,13 @@ services:
   - type: web
     name: business-card-ocr
     runtime: python
-    buildCommand: "apt-get install -y tesseract-ocr && pip install -r 3_app/requirements.txt"
-    startCommand: "cd 3_app && gunicorn main:app"
+    rootDir: 3_app
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "bash start.sh"
     envVars:
       - key: PYTHON_VERSION
-        value: "3.10.0"
+        value: "3.9.18"
+      - key: TESSDATA_PREFIX
+        value: "/usr/share/tesseract-ocr/4.00/tessdata"
+      - key: PYTHONUNBUFFERED
+        value: "1"
