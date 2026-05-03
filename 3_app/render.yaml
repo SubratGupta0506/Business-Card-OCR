@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: business-card-ocr
+    runtime: python
+    buildCommand: "apt-get install -y tesseract-ocr && pip install -r 3_app/requirements.txt"
+    startCommand: "cd 3_app && gunicorn main:app"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.10.0"
