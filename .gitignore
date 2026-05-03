@@ -1,1 +1,4 @@
 spacyenv/ 
+spacyenv/ 
+__pycache__/ 
+*.pyc 
