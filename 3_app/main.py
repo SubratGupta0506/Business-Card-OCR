@@ -73,8 +73,8 @@ def transform():
         array = np.array(points)
         magic_color = docscan.calibrate_to_original_size(array)
 
-        filename = 'magic_color.jpg'
-        magic_image_path = settings.join_path(settings.MEDIA_DIR, filename)
+        # Save to /tmp instead of static/media
+        magic_image_path = '/tmp/magic_color.jpg'
         cv2.imwrite(magic_image_path, magic_color)
 
         return 'success'
@@ -86,30 +86,22 @@ def transform():
 @app.route('/prediction')
 def prediction():
     try:
-        wrap_image_filepath = settings.join_path(settings.MEDIA_DIR, 'magic_color.jpg')
+        wrap_image_filepath = '/tmp/magic_color.jpg'
         image = cv2.imread(wrap_image_filepath)
 
         if image is None:
-            return render_template(
-                'predictions.html',
-                results=[],
-                message='❌ Processed image not found.'
-            )
+            return render_template('predictions.html', results=[], message='❌ Processed image not found.')
 
         image_bb, results = pred.getPredictions(image)
 
-        bb_filename = settings.join_path(settings.MEDIA_DIR, 'bounding_box.jpg')
+        bb_filename = '/tmp/bounding_box.jpg'
         cv2.imwrite(bb_filename, image_bb)
 
         return render_template('predictions.html', results=results)
 
     except Exception as e:
         print('Prediction Error:', e)
-        return render_template(
-            'predictions.html',
-            results=[],
-            message='❌ Error while generating predictions.'
-        )
+        return render_template('predictions.html', results=[], message='❌ Error: ' + str(e))
 
 
 @app.route('/about')
